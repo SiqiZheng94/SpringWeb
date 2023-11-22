@@ -17,16 +17,16 @@ public class MyController {
     public String sayHello2(@PathVariable String name){
         return "Hello, " + name + "!";
     }
-    private List<Message> messages = new ArrayList<>();
 
-    @GetMapping("/api/messages")
-    public List<Message> getAllMessages() {
-        return messages;
-    }
+    private List<Message> messages = new ArrayList<>();
 
     @PostMapping("/api/messages")
     public void addMessage(@RequestBody Message message) {
         messages.add(message);
+    }
+    @GetMapping("/api/messages")
+    public List<Message> getAllMessages() {
+        return messages;
     }
 
     @DeleteMapping("/api/messages/{id}")
